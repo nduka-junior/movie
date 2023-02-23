@@ -1,10 +1,19 @@
+.cc{
+ margin-top: 60px;
+  margin-bottom: 50px ;
+  display: flex;
+
+align-items:  center;
+flex-direction: column;
+}
+
 .single_trend {
   display: grid;
   grid-template-columns: repeat(2, 300px);
   width: 100%;
   grid-gap: 30px;
   justify-content: center;
-  margin-top: 60px;
+ 
 }
 .single_trend:nth-child(3) {
   grid-column: span 3;
@@ -25,12 +34,14 @@
   align-items: center;
   margin-top: 80px;
   padding: 0 120px;
+  
 }
 .reviews{
   display: flex;
   flex-direction: column;
   text-align: left;
   padding: 30px;
+  margin-bottom: 50px;
 }
 .review{
   display: flex;
