@@ -2,17 +2,29 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchapi } from "../fetchapi";
 import Reviews from "./Reviews";
+import SingleMovieText from "./SingleMovieText";
+import Videos from "./Videos";
 function SingleMovies() {
   // https://api.themoviedb.org/3/movie/667216?api_key=8a2208e5a0ce32e0e5044f64bc78c38d&language=en-US
   const { id } = useParams();
   const [movies, setMovies] = useState([]);
   const [reviews, setReviews] = useState([]);
+  const [videos, setvideos] = useState([]);
   const apifetch = async () => {
     console.log(movies + "fgggg");
+    //  movies fetch
     const moviesData = await fetchapi(
       `https://api.themoviedb.org/3/movie/${id}?`
     );
     setMovies(moviesData);
+    // videos fetch
+
+    const videosData = await fetchapi(
+      `https://api.themoviedb.org/3/movie/${id}/videos?`
+    );
+    console.log(videosData)
+    setvideos(videosData.results);
+    // reviews fetch
     const reviewsData = await fetchapi(
       `https://api.themoviedb.org/3/movie/${id}/reviews?`
     );
@@ -23,18 +35,8 @@ function SingleMovies() {
   }, []);
   return (
     <>
-      <div className="singlemovie">
-        <img
-          src={`https://image.tmdb.org/t/p/original/${movies.backdrop_path}`}
-          alt={movies.title}
-          className="trend-img"
-        />
-        <h3>Title :{movies.title}</h3>
-        <h3>Release Date: {movies.release_date}</h3>
-        <h3>Duration : {movies.runtime}mins</h3>
-        <h3>Status :{movies.status}</h3>
-        <h4>{movies.overview}</h4>
-      </div>{" "}
+      <SingleMovieText movies={movies} />
+      <Videos videos={videos} />
       <Reviews reviews={reviews}></Reviews>
     </>
   );

@@ -10,10 +10,10 @@ function Review({ review }) {
         className="review_avatar"
       />
       <div className="review_text">
-              <h2>{review.author}</h2>
-              <br />
-              <h4>{review.content}</h4>
-              <br />
+        <h2>{review.author}</h2>
+        <br />
+        <h4>{review.content}</h4>
+        <br />
         <h5>{new Date(review.created_at).toDateString()}</h5>
       </div>
     </div>
