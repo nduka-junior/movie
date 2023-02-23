@@ -3,7 +3,7 @@ import "../styles/trending.css";
 import { Link } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 function TrendingList({ trending }) {
-  console.log(trending)
+  console.log(trending);
   return (
     <>
       {trending.title && (
@@ -14,18 +14,17 @@ function TrendingList({ trending }) {
             className="trend-img"
           />
           <div className="trendlist_text">
-            <h4>Title: {trending.title}</h4>
-            <Link to={`/movies/${trending.id}`}> Overview</Link>
+            <h4 style={{ marginRight: "6px" }}>Title: {trending.title}</h4>
+            <Link to={`/movies/${trending.id}`}>{ "More>>>"}</Link>
           </div>
-          <div style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop:"10px"
-
-        
-          }}>
-        
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: "10px",
+            }}
+          >
             <Rating
               name="read-only"
               value={trending.vote_average / 2}
