@@ -16,14 +16,27 @@ import SingleMovies from "./component/SingleMovies";
 function App() {
  
 
-  // routes
+  // // routes
+  // const router = createBrowserRouter(
+  //   createRoutesFromElements(
+  //     <Route>
+  //       <Route index element={<Trending  />} path='/'></Route>
+  //       <Route path="/movies/:id" element={<SingleMovies />}></Route>
+  //     </Route>
+  //   )
+  // );
   const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route>
-        <Route index element={<Trending  />} path='/'></Route>
-        <Route path="/movies/:id" element={<SingleMovies />}></Route>
-      </Route>
-    )
+    [
+      {
+        path: "/",
+        element: <Trending />,
+      },
+      {
+        path: "/movies/:id",
+        element: <SingleMovies />,
+      },
+    ],
+    { basename: "/" }
   );
 
 
