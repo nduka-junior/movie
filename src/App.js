@@ -20,7 +20,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
-        <Route index element={<Trending  />}></Route>
+        <Route index element={<Trending  />} path='/'></Route>
         <Route path="/movies/:id" element={<SingleMovies />}></Route>
       </Route>
     )
