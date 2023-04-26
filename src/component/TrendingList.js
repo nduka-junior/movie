@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 function TrendingList({ trending }) {
   console.log(trending);
+  const item = []
+  
   return (
     <>
       {trending.title && (
